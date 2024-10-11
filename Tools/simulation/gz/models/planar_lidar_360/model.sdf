@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="planar_lidar_360">
+    <link name="lidar_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0.02 0 0 0</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.00034437749999999994</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00034437749999999994</iyy>
+          <iyz>0</iyz>
+          <izz>0.00022199999999999998</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.04</length>
+            <radius>0.025</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <length>0.04</length>
+            <radius>0.025</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <sensor name='gpu_lidar' type='gpu_lidar'>
+        <update_rate>10</update_rate>
+        <topic>lidar</topic>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>640</samples>
+              <min_angle>-3.141592654</min_angle>
+              <max_angle>3.141592654</max_angle>
+              <resolution>1</resolution>
+            </horizontal>
+            <vertical>
+              <samples>16</samples>
+              <resolution>1</resolution>
+              <min_angle>0.0</min_angle>
+              <max_angle>0.4</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>10.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <!-- <alwaysOn>1</alwaysOn> -->
+        <visualize>true</visualize>
+      </sensor>
+      <!-- <sensor name='gpu_lidar' type='gpu_lidar'>"
+        <update_rate>10</update_rate>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>1280</samples>
+              <min_angle>-3.141592654</min_angle>
+              <max_angle>3.141592654</max_angle>
+              <resolution>1</resolution>
+            </horizontal>
+            <vertical>
+              <samples>1</samples>
+              <resolution>0.01</resolution>
+              <min_angle>0</min_angle>
+              <max_angle>0</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.08</min>
+            <max>10.0</max>
+            <resolution>0.01</resolution>
+          </range>
+        </ray>
+        <alwaysOn>1</alwaysOn>
+        <visualize>true</visualize>
+      </sensor> -->
+    </link>
+    <static>true</static>
+  </model>
+
+</sdf>
